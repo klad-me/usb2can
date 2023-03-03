@@ -58,30 +58,9 @@ int main(void)
 	
 	cpu_init();
 	leds_init();
-	uart_init(115200);
+	uart_init(460800);
 	can_init();
 	timer_init();
-	
-	/*while (1)
-	{
-		CAN_Message msg;
-		
-		msg.IDE=1;
-		msg.ID=0x12345678;
-		msg.RTR=0;
-		msg.DLC=8;
-		for (int i=0; i<8; i++)
-			msg.data[i]=i;
-		can_tx(&msg);
-		
-		green=10;
-		
-		Timer_t t;
-		T_set(t, 100);
-		while (! T_expired(t));
-		
-		wdt_reset();
-	}*/
 	
 	main_program();
 	return 0;
